@@ -222,9 +222,153 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-he
 .tres-btns .btn-back{flex:1;padding:13px 0;background:var(--surface);border:1px solid var(--border2);color:var(--text);font-family:'Syne',sans-serif;font-size:14px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;border-radius:12px;cursor:pointer;transition:all .2s;}
 .tres-btns .btn-back:hover{background:rgba(255,255,255,.06);}
 
-@media(max-width:600px){
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — tablette large (≤1024px)
+═══════════════════════════════════════════════ */
+@media(max-width:1024px){
+  .ptable{grid-template-columns:repeat(18,minmax(30px,1fr));gap:2px;min-width:580px;}
+  .train-ptable{grid-template-columns:repeat(18,minmax(28px,1fr));gap:2px;min-width:530px;}
+  .cs{font-size:10px;}.rcell .cs{font-size:10px;}.tcs{font-size:10px;}
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — tablette (≤768px)
+═══════════════════════════════════════════════ */
+@media(max-width:768px){
+  /* Nav : texte court, scroll horizontal si besoin */
+  .nav{padding:0 10px;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .tbtn{font-size:11px;padding:14px 12px;letter-spacing:.04em;white-space:nowrap;}
+  .nav-uname{display:none;}
+  .nav-logout{font-size:10px;padding:4px 8px;}
+
+  /* Auth card */
+  .auth-card{padding:32px 24px;}
+  .auth-card h1{font-size:22px;}
+
+  /* Start screen */
+  #start h2{font-size:28px;}
+  #start p{font-size:14px;}
+  .btn-play{padding:15px 36px;font-size:15px;}
+
+  /* Topbar stats */
+  .topbar{flex-direction:column;align-items:flex-start;gap:10px;}
+  .gtitle{font-size:18px;}
+  .stats{gap:16px;}
+  .stat .v{font-size:20px;}
+
+  /* Input row */
+  .irow{gap:8px;}
+  .einput{min-width:0;font-size:14px;padding:10px 12px;}
+  .btn{font-size:11px;padding:10px 12px;}
+
+  /* Game table */
+  .ptable{grid-template-columns:repeat(18,minmax(26px,1fr));gap:2px;min-width:490px;}
+  .cs{font-size:9px;}.cz{font-size:4.5px;}.cn{font-size:4px;}
+  .rcell .cs{font-size:9px;}.rcell .cz{font-size:4.5px;}.rcell .cn{font-size:4px;}
+
+  /* Training */
+  .train-setup h2{font-size:22px;}
   .train-ptable{grid-template-columns:repeat(18,minmax(24px,1fr));gap:1px;min-width:450px;}
-  .tcs{font-size:9px;}
+  .tcs{font-size:9px;}.tcz{font-size:4.5px;}
+  .train-topbar{flex-direction:column;align-items:flex-start;gap:10px;}
+  .ttitle{font-size:16px;}
+
+  /* Leaderboard */
+  .lb-table th,.lb-table td{padding:9px 10px;font-size:12px;}
+  .lb-time,.lb-date{display:none;}
+
+  /* Popups */
+  #epcard{padding:28px 28px;min-width:0;width:88%;}
+  #epsym{font-size:48px;}
+  #epname{font-size:20px;}
+  #gocard{padding:28px 24px;}
+  .sbig{font-size:48px;}
+  .go-btns{flex-direction:column;}
+  #trescard{padding:28px 24px;}
+  .tres-score{font-size:44px;}
+  .tres-btns{flex-direction:column;}
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — mobile (≤480px)
+═══════════════════════════════════════════════ */
+@media(max-width:480px){
+  /* Nav : icônes seulement sur très petit écran */
+  .tbtn{font-size:11px;padding:14px 8px;letter-spacing:.02em;}
+  .tbtn-icon{font-size:16px;}
+  .tbtn-text{display:none;}
+
+  /* On réaffiche juste l'emoji */
+  #btn-game::before,#btn-ref::before,#btn-train::before,#btn-lb::before{content:none;}
+
+  .page{padding:16px 12px;}
+  #start{min-height:60vh;gap:14px;}
+  #start h2{font-size:22px;}
+  #start p{font-size:13px;}
+  .btn-play{padding:13px 28px;font-size:14px;}
+  .personal-best{font-size:12px;padding:8px 14px;}
+
+  .topbar{margin-bottom:14px;}
+  .gtitle{font-size:16px;}
+  .stats{gap:10px;}
+  .stat .v{font-size:18px;}
+  .stat .l{font-size:9px;}
+
+  .einput{font-size:14px;padding:10px 11px;}
+  .fb{font-size:12px;}
+
+  /* Table — très petites cases mais scrollable */
+  .ptable{grid-template-columns:repeat(18,minmax(22px,1fr));gap:1px;min-width:410px;}
+  .cs{font-size:8px;}.cz{font-size:4px;}.cn{display:none;}
+  .rcell .cs{font-size:8px;}.rcell .cz{font-size:4px;}.rcell .cn{display:none;}
+
+  /* Train */
+  .train-setup{padding:24px 0 20px;gap:16px;}
+  .train-setup h2{font-size:20px;}
+  .train-note{font-size:13px;}
+  .train-ptable{grid-template-columns:repeat(18,minmax(20px,1fr));gap:1px;min-width:380px;}
+  .tcs{font-size:8px;}.tcz{font-size:4px;}
+  .btn-train{padding:13px 32px;font-size:14px;}
+
+  /* Leaderboard */
+  .lb-header h2{font-size:18px;}
+  .lb-table th{font-size:10px;padding:7px 8px;}
+  .lb-table td{font-size:12px;padding:9px 8px;}
+  .lb-score{font-size:13px;}
+  .lb-rank{font-size:13px;}
+
+  /* Popups plein écran sur mobile */
+  #epcard{border-radius:14px;padding:24px 20px;}
+  #epsym{font-size:42px;}
+  #epname{font-size:18px;}
+  #epcat{font-size:11px;}
+  #epclose{padding:8px 20px;font-size:12px;}
+  #gocard{border-radius:14px;padding:24px 20px;width:95%;}
+  .sbig{font-size:42px;}
+  #gocard h3{font-size:18px;}
+  #gomsg,#gotime{font-size:12px;}
+  #gowrong{font-size:11px;}
+  #trescard{border-radius:14px;padding:24px 20px;width:95%;}
+  .tres-score{font-size:38px;}
+
+  /* Auth */
+  .auth-card{padding:28px 18px;border-radius:14px;}
+  .auth-card h1{font-size:20px;}
+  .auth-card p{font-size:13px;margin-bottom:20px;}
+  .auth-field{font-size:13px;padding:11px 14px;}
+  .auth-submit{padding:13px;font-size:14px;}
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — très petit (≤360px, ex Galaxy S)
+═══════════════════════════════════════════════ */
+@media(max-width:360px){
+  .ptable{grid-template-columns:repeat(18,minmax(18px,1fr));gap:1px;min-width:340px;}
+  .cs{font-size:7px;}
+  .train-ptable{grid-template-columns:repeat(18,minmax(17px,1fr));gap:1px;min-width:320px;}
+  .tcs{font-size:7px;}
+  .stat .v{font-size:16px;}
+  .einput{font-size:13px;}
 }
 
 </style>
@@ -251,10 +395,10 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-he
 <!-- NAV -->
 <div class="nav">
   <div class="nav-left">
-    <button class="tbtn active" id="btn-game" onclick="goTab('game')">🎮 Jeu</button>
-    <button class="tbtn" id="btn-ref" onclick="goTab('ref')">📚 Référence</button>
-    <button class="tbtn" id="btn-train" onclick="goTab('train')">🎯 Entraînement</button>
-    <button class="tbtn" id="btn-lb" onclick="goTab('lb')">🏆 Classement</button>
+    <button class="tbtn active" id="btn-game" onclick="goTab('game')"><span class="tbtn-icon">🎮</span><span class="tbtn-text"> Jeu</span></button>
+    <button class="tbtn" id="btn-ref" onclick="goTab('ref')"><span class="tbtn-icon">📚</span><span class="tbtn-text"> Référence</span></button>
+    <button class="tbtn" id="btn-train" onclick="goTab('train')"><span class="tbtn-icon">🎯</span><span class="tbtn-text"> Entraînement</span></button>
+    <button class="tbtn" id="btn-lb" onclick="goTab('lb')"><span class="tbtn-icon">🏆</span><span class="tbtn-text"> Classement</span></button>
   </div>
   <div class="nav-user" id="nav-user" style="display:none;">
     <div class="nav-avatar" id="nav-avatar"></div>
